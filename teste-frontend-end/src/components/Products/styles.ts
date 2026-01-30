@@ -38,18 +38,20 @@ export const ProductsWrapper = styled.section`
   padding: 32px 185px;
 `;
 
-export const NavButton = styled.image`
+export const NavButton = styled.button`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+
+  background: transparent;
+  border: none;
+ 
   display: flex;
   align-items: center;
   justify-content: center;
+
   cursor: pointer;
-  img {
-    width: 32px;
-    height: 32px;
-  }
+  z-index: 10;
 `;
 
 export const NavLeft = styled(NavButton)`
