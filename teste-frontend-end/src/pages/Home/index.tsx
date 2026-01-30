@@ -1,5 +1,8 @@
-import { CategoriesMenu } from "../../components/CategoriaMenu/categoriamenu";
+import { Banner } from "../../components/Banner/banner";
+import { Categories } from "../../components/Categories/categories";
+import { CategoriesMenu } from "../../components/CategoryMenu/categoriamenu";
 import { Header } from "../../components/Header/header";
+import { Products } from "../../components/Products/products";
 import { SubHeader } from "../../components/SubHeader/subheader";
 
 export const Home = () => {
@@ -8,6 +11,9 @@ export const Home = () => {
       <SubHeader />
       <Header />
       <CategoriesMenu />
+      <Banner />
+      <Categories />
+      <Products />
     </>
   );
 };
