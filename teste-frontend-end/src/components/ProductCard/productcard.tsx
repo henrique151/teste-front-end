@@ -1,35 +1,31 @@
-import type { Product } from "../../types/ProductType";
+import type { ProductCardProps } from "../../types/ProductType";
 import {
   Container,
-  ImageWrapper,
-  Info,
   Description,
   OldPrice,
   Price,
   Installments,
   FreeShipping,
   BuyButton,
+  ImageContainer,
+  ProductImage,
 } from "./styles";
 
-type Props = {
-  product: Product;
-};
-
-export const ProductCard = ({ product }: Props) => {
+export const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <Container>
-      <ImageWrapper>
-        <img src={product.photo} alt={product.productName} />
-      </ImageWrapper>
-      <Info>
-        <Description>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </Description>
-        <OldPrice>R$ 30,90</OldPrice>
-        <Price>R$ 28,90</Price>
-        <Installments>ou 2x de R$ 49,95 sem juros</Installments>
-        <FreeShipping>Frete grátis</FreeShipping>
-      </Info>
+      <ImageContainer>
+        <ProductImage src={product.photo} alt={product.productName} />
+      </ImageContainer>
+
+      <Description>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Description>
+      <OldPrice>R$ 30,90</OldPrice>
+      <Price>R$ 28,90</Price>
+      <Installments>ou 2x de R$ 49,95 sem juros</Installments>
+      <FreeShipping>Frete grátis</FreeShipping>
+
       <BuyButton>COMPRAR</BuyButton>
     </Container>
   );

@@ -5,6 +5,11 @@ export type Product = {
     price: number;
 };
 
+export type ProductsProps = {
+    title?: string;
+    subtitle?: string;
+    showTabs?: boolean;
+};
 export type Props = {
     product: Product;
     onClose: () => void;
@@ -12,4 +17,13 @@ export type Props = {
 
 export type Tab = {
     label: string;
+};
+
+export type ProductTapsProps = {
+    active: string;
+    onChange: (category: string) => void;
+}
+
+export type ProductCardProps = {
+    product: Product;
 };

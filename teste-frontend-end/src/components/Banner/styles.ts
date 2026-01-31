@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.section`
+export const Wrapper = styled.section<{ $imageUrl: string }>`
   width: 100%;
   height: 390px;
   position: relative;
-  background-image: url("/src/assets/images/Banner Header.png");
+  background-image: url(${(props) => props.$imageUrl});
   background-size: cover;
   background-position: center;
 `;

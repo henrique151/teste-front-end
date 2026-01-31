@@ -1,53 +1,60 @@
 import { useState } from "react";
-import type { Product } from "../../types/ProductType";
+import type { Product, ProductsProps } from "../../types/ProductType";
 import { ProductCard } from "../ProductCard/productcard";
 import { ProductModal } from "../ProductModal/productmodal";
 import {
   Container,
-  TitleWrapper,
-  Line,
-  Title,
   Grid,
   NavRight,
   NavLeft,
   ProductsWrapper,
+  EmptyState,
 } from "./styles";
-import ArrowLeft from "../../assets/images/Group 2411.png";
-import ArrowRight from "../../assets/images/Group 2412.png";
-import data from "../../../public/data/produtos.json";
+import data from "../../data/produtos.json";
 import { ProductTabs } from "../ProductTabs/producttabs";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { SectionTitle } from "../SectionTitle/sectiontitle";
 
-export const Products = () => {
+export const Products = ({
+  title = "Produtos relacionados",
+  subtitle,
+  showTabs = true,
+}: ProductsProps) => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [activeTab, setActiveTab] = useState("CELULAR");
+
+  const filteredProducts =
+    activeTab === "CELULAR" || activeTab === "VER TODOS" ? data.products : [];
 
   return (
     <Container>
-      {/* TÍTULO */}
-      <TitleWrapper>
-        <Line />
-        <Title>Produtos relacionados</Title>
-        <Line />
-      </TitleWrapper>
+      <SectionTitle title={title} subtitle={subtitle} />
 
-      {/* TIPOS DE PRODUTOS */}
-      <ProductTabs />
+      {/* Tabs */}
+      {showTabs && <ProductTabs active={activeTab} onChange={setActiveTab} />}
 
-      {/* GRID */}
       <ProductsWrapper>
-        <NavLeft>
-          <img src={ArrowLeft} alt="Anterior" />
-        </NavLeft>
-        <Grid>
-          {data.products.slice(0, 4).map((product) => (
-            <ProductCard key={product.productName} product={product} />
-          ))}
-        </Grid>
-        <NavRight>
-          <img src={ArrowRight} alt="Próximo" />
-        </NavRight>
+        {filteredProducts.length > 0 ? (
+          <>
+            <NavLeft>
+              <FiChevronLeft size={19} />
+            </NavLeft>
+
+            <Grid>
+              {filteredProducts.slice(0, 4).map((product) => (
+                <ProductCard key={product.productName} product={product} />
+              ))}
+            </Grid>
+
+            <NavRight>
+              <FiChevronRight size={19} />
+            </NavRight>
+          </>
+        ) : (
+          <EmptyState>Não temos esse produto no momento</EmptyState>
+        )}
       </ProductsWrapper>
 
-      {/* MODAL */}
       {selectedProduct && (
         <ProductModal
           product={selectedProduct}

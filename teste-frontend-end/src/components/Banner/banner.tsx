@@ -1,9 +1,11 @@
 import { Wrapper, Overlay, Content, Title, Subtitle } from "./styles";
 import { Button } from "../Button/button";
 
+import BannerImg from "../../assets/images/Banner Header.png";
+
 export const Banner = () => {
   return (
-    <Wrapper>
+    <Wrapper $imageUrl={BannerImg}>
       <Overlay>
         <Content>
           <Title>

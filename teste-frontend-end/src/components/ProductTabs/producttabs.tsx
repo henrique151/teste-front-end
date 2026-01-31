@@ -1,17 +1,15 @@
-import { useState } from "react";
 import { Container, TabItem } from "./styles";
+import type { ProductTapsProps } from "../../types/ProductType";
 
-const tabs = [
-  "CELULAR",
-  "ACESSÓRIOS",
-  "TABLETS",
-  "NOTEBOOKS",
-  "TVS",
-  "VER TODOS",
-];
-
-export const ProductTabs = () => {
-  const [active, setActive] = useState("CELULAR");
+export const ProductTabs = ({ active, onChange }: ProductTapsProps) => {
+  const tabs = [
+    "CELULAR",
+    "ACESSÓRIOS",
+    "TABLETS",
+    "NOTEBOOKS",
+    "TVS",
+    "VER TODOS",
+  ];
 
   return (
     <Container>
@@ -19,7 +17,7 @@ export const ProductTabs = () => {
         <TabItem
           key={tab}
           $active={tab === active}
-          onClick={() => setActive(tab)}
+          onClick={() => onChange(tab)}
         >
           {tab}
         </TabItem>
