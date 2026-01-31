@@ -1,7 +1,12 @@
 import styled from "styled-components";
 
+export const TabsWrapper = styled.section`
+  padding: 0 clamp(32px, 11vw, 220px);
+  margin-bottom: 16px;
+`;
+
 export const Container = styled.section`
-  padding: 32px 185px;
+  padding: 32px clamp(64px, 5vw, 185px);
   cursor: default;
 `;
 
@@ -27,21 +32,34 @@ export const Title = styled.h2`
   white-space: nowrap;
 `;
 
-export const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 304px);
-  gap: 20px;
-`;
-
 export const ProductsWrapper = styled.section`
+  position: relative;
+  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 24px;
-  margin-top: 32px;
+  margin-top: 6px;
 `;
 
-export const NavButton = styled.button`
+export const Grid = styled.div`
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  max-width: 1280px;
+  width: 100%;
+  justify-content: center;
+`;
+
+export const NavButton = styled.button<{ side?: "left" | "right" }>`
+  position: absolute;
+  top: 50%;
+
+  ${({ side }) =>
+    side === "left"
+      ? "left: calc(50% - 640px - 48px);"
+      : "right: calc(50% - 640px - 48px);"}
+
+  transform: translateY(-50%);
+
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -57,9 +75,15 @@ export const NavButton = styled.button`
   transition: transform 0.2s ease;
 
   &:hover {
-    transform: scale(1.05);
+    transform: translateY(-50%) scale(1.05);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
   }
 `;
+
 
 export const EmptyState = styled.div`
   width: 100%;

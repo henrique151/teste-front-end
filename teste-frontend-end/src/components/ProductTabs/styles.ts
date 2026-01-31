@@ -5,7 +5,6 @@ export const Container = styled.div`
   display: flex;
   border: 1px solid ${({ theme }) => theme.colores.cinzaclaroborder};
   height: 40px;
-  
 `;
 
 export const TabItem = styled.button<{ $active?: boolean }>`

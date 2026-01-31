@@ -8,11 +8,13 @@ import {
   ProductsWrapper,
   EmptyState,
   NavButton,
+  TabsWrapper,
 } from "./styles";
 import data from "../../data/produtos.json";
 import { ProductTabs } from "../ProductTabs/producttabs";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { SectionTitle } from "../SectionTitle/sectiontitle";
+import { motion } from "framer-motion";
 
 export const Products = ({
   title = "Produtos relacionados",
@@ -21,34 +23,71 @@ export const Products = ({
 }: ProductsProps) => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [activeTab, setActiveTab] = useState("CELULAR");
+  const ITEMS_PER_PAGE = 4;
+  const [startIndex, setStartIndex] = useState(0);
 
   const filteredProducts =
     activeTab === "CELULAR" || activeTab === "VER TODOS" ? data.products : [];
+
+  const handleNext = () => {
+    if (startIndex + ITEMS_PER_PAGE < filteredProducts.length) {
+      setStartIndex(startIndex + ITEMS_PER_PAGE);
+    }
+  };
+
+  const handlePrev = () => {
+    if (startIndex - ITEMS_PER_PAGE >= 0) {
+      setStartIndex(startIndex - ITEMS_PER_PAGE);
+    }
+  };
 
   return (
     <Container>
       <SectionTitle title={title} subtitle={subtitle} />
 
-      {showTabs && <ProductTabs active={activeTab} onChange={setActiveTab} />}
+      {showTabs && (
+        <TabsWrapper>
+          <ProductTabs active={activeTab} onChange={setActiveTab} />
+        </TabsWrapper>
+      )}
 
       <ProductsWrapper>
         {filteredProducts.length > 0 ? (
           <>
-            <NavButton>
+            <NavButton
+              side="left"
+              onClick={handlePrev}
+              disabled={startIndex === 0}
+            >
               <FiChevronLeft size={19} />
             </NavButton>
 
             <Grid>
-              {filteredProducts.slice(0, 4).map((product) => (
-                <ProductCard
-                  key={product.productName}
-                  product={product}
-                  onClick={setSelectedProduct}
-                />
-              ))}
+              {filteredProducts
+                .slice(startIndex, startIndex + ITEMS_PER_PAGE)
+                .map((product, index) => (
+                  <motion.div
+                    key={product.productName}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.3,
+                      delay: index * 0.1,
+                    }}
+                  >
+                    <ProductCard
+                      product={product}
+                      onClick={setSelectedProduct}
+                    />
+                  </motion.div>
+                ))}
             </Grid>
 
-            <NavButton>
+            <NavButton
+              side="right"
+              onClick={handleNext}
+              disabled={startIndex + ITEMS_PER_PAGE >= filteredProducts.length}
+            >
               <FiChevronRight size={19} />
             </NavButton>
           </>
