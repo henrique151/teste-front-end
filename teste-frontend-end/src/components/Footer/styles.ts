@@ -3,27 +3,33 @@ import styled from "styled-components";
 export const FooterContainer = styled.footer`
   width: 100%;
   background: #f5f5f5;
-  padding: 40px 60px 20px;
-  box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 `;
 
 export const FooterContent = styled.div`
   display: flex;
-  justify-content: space-between;
-  max-width: 1440px;
+  max-width: 1306px; // 1440px;
   margin: 0 auto;
-  gap: 40px;
+  gap: 200px;
+  height: 282px;
+  padding: 80px 0px 50px;
 `;
 
 export const BrandSection = styled.div`
-  max-width: 280px;
+  max-width: 282px;
+`;
+
+export const Divider = styled.div`
+  width: 1px;
+  height: 198px;
+  background: #2828282E;
+  align-self: center;
 `;
 
 export const Logo = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 16px;
+  margin: 0 0 16px 0;
 
   img {
     width: 164px;
@@ -31,79 +37,83 @@ export const Logo = styled.div`
   }
 `;
 
-export const LogoText = styled.span`
-  font-size: 20px;
-  font-weight: 600;
-  color: #2d2d2d;
-`;
-
 export const BrandDescription = styled.p`
-  font-size: 12px;
-  color: #6b6b6b;
+  font-size: 14px;
+  color: #3F3F40;
   line-height: 1.5;
   margin: 0 0 20px 0;
+  font-weight: 300;
+  line-height: 100%
 `;
 
 export const SocialIcons = styled.div`
   display: flex;
-  gap: 16px;
+  gap: 26px;
+
 `;
 
 export const SocialIcon = styled.a`
-  color: #2d2d2d;
-  font-size: 20px;
+  color: #4A4A4A;
+  font-size: 24px;
   cursor: pointer;
   transition: opacity 0.2s ease;
+  margin: 0 0 10px 0; 
 
   &:hover {
     opacity: 0.7;
-  }
-
-  svg {
-    width: 20px;
-    height: 20px;
   }
 `;
 
 export const LinksContainer = styled.div`
   display: flex;
-  gap: 80px;
+  gap: 100px;
+  margin-left: -100px;
 `;
 
 export const LinkColumn = styled.div`
   display: flex;
   flex-direction: column;
+  gap:10px;
 `;
 
 export const ColumnTitle = styled.h4`
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
-  color: #2d2d2d;
+  color: #222222B5;
   margin: 0 0 16px 0;
+  line-height: 16px;
+  gap: 16px;
 `;
 
 export const LinkItem = styled.a`
-  font-size: 12px;
+  font-size: 14px;
   color: #6b6b6b;
   text-decoration: none;
-  margin-bottom: 10px;
+  font-weight: 400;
+  line-height: 16px;
   cursor: pointer;
+  margin: 0 0 10px 0;
   transition: color 0.2s ease;
-
+  
   &:hover {
     color: #2d2d2d;
   }
 `;
 
 
-
 export const Copyright = styled.div`
-  
-width: 100%;
-background: #FFFFFF;
+  width: 100%;
+  height: 46.84px;
+
+  margin: 32px auto 0;
+  background: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   font-size: 11px;
   color: #6b6b6b;
-  text-align: center;
-  margin: 0;
 `;
+
 

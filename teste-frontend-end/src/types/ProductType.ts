@@ -5,6 +5,11 @@ export type Product = {
     price: number;
 };
 
+export interface ProductModalProps {
+    product: Product;
+    onClose: () => void;
+}
+
 export type ProductsProps = {
     title?: string;
     subtitle?: string;
@@ -24,6 +29,8 @@ export type ProductTapsProps = {
     onChange: (category: string) => void;
 }
 
+
 export type ProductCardProps = {
     product: Product;
+    onClick: (product: Product) => void;
 };

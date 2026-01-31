@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.section`
   padding: 32px 185px;
+  cursor: default;
 `;
 
 export const TitleWrapper = styled.div`

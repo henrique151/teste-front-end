@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { Product, ProductsProps } from "../../types/ProductType";
 import { ProductCard } from "../ProductCard/productcard";
-import { ProductModal } from "../ProductModal/productmodal";
+import ProductModal from "../ProductPopup/productpopup";
 import {
   Container,
   Grid,
@@ -42,7 +42,11 @@ export const Products = ({
 
             <Grid>
               {filteredProducts.slice(0, 4).map((product) => (
-                <ProductCard key={product.productName} product={product} />
+                <ProductCard
+                  key={product.productName}
+                  product={product}
+                  onClick={setSelectedProduct}
+                />
               ))}
             </Grid>
 
