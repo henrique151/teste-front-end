@@ -39,37 +39,74 @@ Antes de iniciar, certifique-se de ter instalado em sua máquina:
 
 ---
 
-### 📂 Passo a passo (para iniciantes)
+### 📂 Passo a passo 
 
-1. Abra o **Prompt de Comando (Windows)**, **Terminal (macOS)** ou o **Terminal do VS Code**.
+#### 1️⃣ Abra o terminal
 
-2. Escolha uma pasta do seu computador onde deseja salvar o projeto.
+- **Windows**:
+  Pressione `Windows + R`, digite `cmd` e pressione **Enter**
+  _(ou use o terminal integrado do VS Code)_
 
-3. Clone o repositório executando o comando abaixo:
+- **macOS / Linux**:
+  Abra o aplicativo **Terminal**
+
+#### 2️⃣ Vá até o Desktop (ou outra pasta de sua preferência)
+
+No terminal, digite:
+
+**Windows**
+
+```bash
+cd Desktop
+```
+
+**macOS / Linux**
+
+```bash
+cd ~/Desktop
+```
+
+> 💡 Isso garante que o projeto será salvo diretamente na área de trabalho.
+
+#### 3️⃣ Clone o repositório
+
+Execute o comando abaixo:
 
 ```bash
 git clone https://github.com/henrique151/teste-front-end.git
 ```
 
-4. Acesse a pasta do projeto:
+Isso criará uma pasta chamada `teste-front-end` no Desktop.
+
+#### 4️⃣ Acesse a pasta do repositório
 
 ```bash
 cd teste-front-end
 ```
 
-5. Instale as dependências:
+#### 5️⃣ Acesse a pasta onde está o projeto React
+
+⚠️ **Importante:** o projeto está dentro de uma subpasta.
+
+```bash
+cd teste-frontend-end
+```
+
+#### 6️⃣ Instale as dependências
 
 ```bash
 npm install
 ```
 
-6. Inicie o servidor de desenvolvimento:
+#### 7️⃣ Inicie o servidor de desenvolvimento
 
 ```bash
 npm run dev
 ```
 
-7. Quando o terminal indicar que o projeto está rodando, abra o navegador e acesse:
+#### 8️⃣ Abra o projeto no navegador
+
+Quando o terminal indicar que o servidor está rodando, acesse:
 
 ```txt
 http://localhost:5173
