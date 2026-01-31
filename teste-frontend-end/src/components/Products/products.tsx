@@ -5,10 +5,9 @@ import ProductModal from "../ProductPopup/productpopup";
 import {
   Container,
   Grid,
-  NavRight,
-  NavLeft,
   ProductsWrapper,
   EmptyState,
+  NavButton,
 } from "./styles";
 import data from "../../data/produtos.json";
 import { ProductTabs } from "../ProductTabs/producttabs";
@@ -30,15 +29,14 @@ export const Products = ({
     <Container>
       <SectionTitle title={title} subtitle={subtitle} />
 
-      {/* Tabs */}
       {showTabs && <ProductTabs active={activeTab} onChange={setActiveTab} />}
 
       <ProductsWrapper>
         {filteredProducts.length > 0 ? (
           <>
-            <NavLeft>
+            <NavButton>
               <FiChevronLeft size={19} />
-            </NavLeft>
+            </NavButton>
 
             <Grid>
               {filteredProducts.slice(0, 4).map((product) => (
@@ -50,9 +48,9 @@ export const Products = ({
               ))}
             </Grid>
 
-            <NavRight>
+            <NavButton>
               <FiChevronRight size={19} />
-            </NavRight>
+            </NavButton>
           </>
         ) : (
           <EmptyState>Não temos esse produto no momento</EmptyState>

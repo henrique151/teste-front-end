@@ -30,65 +30,35 @@ export const Title = styled.h2`
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 304px);
-  gap: 30px;
-  justify-content: center;
+  gap: 20px;
 `;
 
 export const ProductsWrapper = styled.section`
-  position: relative;
-  padding: 32px 185px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 32px;
 `;
 
 export const NavButton = styled.button`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-
   width: 32px;
   height: 32px;
   border-radius: 50%;
-
   background: ${({ theme }) => theme.colores.branco};
   border: none;
-  box-shadow: 0px 4px 4px 0px #00000040;
+  box-shadow: 0px 4px 4px #00000040;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   cursor: pointer;
-  z-index: 10;
-
-  transition:
-    background-color 0.25s ease,
-    box-shadow 0.25s ease,
-    transform 0.25s ease;
-
-  svg {
-    color: #3f3f40;
-    transition: color 0.25s ease;
-  }
+  transition: transform 0.2s ease;
 
   &:hover {
-    background: ${({ theme }) => theme.colores.roxoclaro};
-    transform: translateY(-50%) scale(1.05);
-
-    svg {
-      color: ${({ theme }) => theme.colores.branco};
-    }
+    transform: scale(1.05);
   }
-
-  &:active {
-    transform: translateY(-50%) scale(0.96);
-  }
-`;
-
-export const NavLeft = styled(NavButton)`
-  left: 40px;
-`;
-
-export const NavRight = styled(NavButton)`
-  right: 40px;
 `;
 
 export const EmptyState = styled.div`

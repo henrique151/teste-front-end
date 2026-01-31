@@ -29,11 +29,11 @@ export const ProductImage = styled.img`
 
 export const Description = styled.p`
   font-family: "Poppins", sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 300;
   line-height: 1.4;
   color: #3f3f40;
-  margin: 0 0 12px 0;
+  margin: 0 0 17px 0;
 `;
 
 export const OldPrice = styled.span`
@@ -58,7 +58,7 @@ export const Installments = styled.span`
   font-size: 12px;
   color: #3f3f40;
   display: block;
-  margin-bottom: 8px;
+  margin-top: 10px;
   line-height: 100%;
 `;
 
@@ -68,7 +68,7 @@ export const FreeShipping = styled.span`
   color: ${({ theme }) => theme.colores.roxoclaro};
   display: block;
   font-weight: 400;
-  margin-top: 2px
+  margin-top: 10px
 `;
 
 export const BuyButton = styled.button`
